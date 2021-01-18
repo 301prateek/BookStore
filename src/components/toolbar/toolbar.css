@@ -1,0 +1,59 @@
+.toolbar{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    background-color: #A03037;
+}
+
+.title{
+    display: flex;
+    flex-direction: row;
+    height: 20px;
+    margin-left: 10%;
+}
+.search{
+    display: flex;
+    flex-direction: row;
+    margin-left: 5%;
+}
+
+.profile{
+    display: flex;
+    flex-direction: row;
+    margin-left: 25%;
+    border-left: 1px solid rgb(129, 129, 129);
+    border-right: 1px solid rgb(129, 129, 129);
+    padding: 0 2% 0 1%;
+}
+
+.cart{
+    display: flex;
+    flex-direction: row;
+    margin-left: 1%;
+    border-right: 1px solid rgb(129, 129, 129);
+    padding: 0 2% 0 0;
+}
+
+.MuiTypography-root{
+    text-decoration-color: white;
+}
+
+@media screen and (max-width: 600px) {
+
+    .profile{
+        display: flex;
+        flex-direction: row;
+        margin-left: 8%;
+        border-left: 1px solid rgb(129, 129, 129);
+        border-right: 1px solid rgb(129, 129, 129);
+        padding: 0 2% 0 1%;
+    }
+
+    .title{
+        display: flex;
+        flex-direction: row;
+        height: 20px;
+        margin-left: 0%;
+    }
+
+}
