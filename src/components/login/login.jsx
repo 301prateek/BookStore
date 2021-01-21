@@ -17,8 +17,25 @@ import FormControl from '@material-ui/core/FormControl';
 import Visibility from '@material-ui/icons/Visibility';
 import VisibilityOff from '@material-ui/icons/VisibilityOff';
 import userService from '../../Services/userService';
+import { createMuiTheme, ThemeProvider } from '@material-ui/core/styles';
 
 const service = new userService();
+
+const theme = createMuiTheme({
+
+    palette: {
+        primary:{
+            main: '#fff',
+        },
+    },
+    breakpoints: {
+        values: {
+          xs: 0,
+          sm: 600,
+        },
+      },
+
+  });
 
 export default class Login extends React.Component{
 
@@ -29,7 +46,7 @@ export default class Login extends React.Component{
             emailError: false,
             emailMsg: "",
             password:"",
-            passwordError: "",
+            passwordError: false,
             passwordMsg:"",
             showPassword: false
         };
@@ -118,6 +135,9 @@ export default class Login extends React.Component{
             }
             service.login(userData).then(data => {
                 console.log(data);
+                console.log(data.data.result.accessToken);
+                localStorage.setItem('userToken', data.data.result.accessToken);
+                // localStorage.setItem(data.data.result.accessToken);
                 this.props.history.push('/dashboard');
                 
             }).catch(error => {
@@ -137,7 +157,7 @@ export default class Login extends React.Component{
                         <span>ONLINE BOOK SHOPPING</span>
                     </div>
                 </div>
-                <div className="first-container" >
+                <div className="first-containerLogin" >
                     <h2>LOGIN</h2>
                     <form onSubmit={this.submit} >
                         <div className="content">
@@ -147,6 +167,7 @@ export default class Login extends React.Component{
                                     label="Email id"
                                     id="outlined-margin-dense"
                                     fullWidth
+                                    size="normal"
                                     margin="dense"
                                     variant="outlined"
                                     onChange={this.handleChange}
@@ -155,12 +176,14 @@ export default class Login extends React.Component{
                                 />
                             </div>
                             <div className="textfield">
-                                <FormControl className="textfield" variant="outlined">
+                                <FormControl size="small" className="textfield" variant="outlined">
                                     <InputLabel htmlFor="outlined-adornment-password">Password</InputLabel>
                                     <OutlinedInput
+                                        size="small"
                                         name="password"
                                         label="Password"
-                                        id="outlined-adornment-password"
+                                        // id="outlined-adornment-password"
+                                        id="filled-size-small"
                                         fullWidth
                                         onChange={this.handleChangePassword}
                                         error={this.state.passwordError}
@@ -185,10 +208,12 @@ export default class Login extends React.Component{
                                 </FormControl>
                             </div>
                         </div>
-                        <div className="buttons">
-                            <Button size="medium" fullWidth color="default" onClick={this.submit}>
+                        <div className="buttons-login">
+                        <ThemeProvider theme={theme}>
+                            <Button size="medium" fullWidth color="primary" onClick={this.submit}>
                                 <span>Sign in</span>
                             </Button>
+                        </ThemeProvider>
                         </div>
                     </form>
                 </div>

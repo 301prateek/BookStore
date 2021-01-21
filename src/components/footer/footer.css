@@ -1,0 +1,13 @@
+.footer-main{
+    width: 90%;
+    background-color: #2E1D1E;
+    font-size: 10px;
+    color: white;
+    display: flex;
+    flex-direction: row;
+    height:30px;
+    margin-top: 10px;
+    justify-content: flex-start;
+    align-items: center;
+    padding-left: 10%;
+}

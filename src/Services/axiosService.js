@@ -9,4 +9,12 @@ export default class axiosService{
     Get =(url, isHeaderRequired = false) => {
         return axios.get(url, isHeaderRequired)
     }
+
+    Put = (url, data, isHeaderRequired = false) =>{
+        return axios.put(url, data, isHeaderRequired)
+    }
+
+    Delete = (url, isHeaderRequired = false) =>{
+        return axios.delete(url, isHeaderRequired)
+    }
 }

@@ -1,15 +1,267 @@
 .main-cart{
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    align-items: center;
+    justify-content: flex-start;
     width: 100%;
+    height: 100vh;
 }
 
 .book-details{
+    margin-top: 3%;
+    margin-left: 12%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 53%;
+    height: 100%;
+    border:1px solid lightgray;
+    padding: 1% 2% 3% 2%;
+}
+
+.heading{
+    font-size: larger;
+    font-weight: 700;
+}
+
+.book-quantity{
+    margin-top: 1%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.book-count{
     display: flex;
     flex-direction: row;
-    width: 80%;
-    height: 25%;
+    margin-top: 2%;
+}
+
+.book-titleCart{
+    overflow: hidden;
+}
+
+.title-book{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width:150px;
+}
+
+.counter{
+    display: flex;
+    flex-direction: row;
+    width:200px;
+    justify-content: space-between;
+    height: 20px;
+}
+
+.buttons-add{
+    width:20px;
+    border-radius: 50%;
+    background-color: lightgray;
+    border: none;
+    margin-left: 5px;
+}
+
+.buttons-minus{
+    width:20px;
+    border-radius: 50%;
+    background-color: lightgray;
+    border: none;
+}
+
+.show-number{
+    font-size: small;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-content: flex-start;
+    border: 1px solid lightgray;
+    height:20px;
+    width:35px;
+    margin-left: 5px;
+}
+
+.place-order{
+    display: flex;
+    justify-content: flex-end;
+}
+
+.order-button{
+    width:150px;
+    height:30px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: small;
+    color: white;
+    background-color: #3371B5;
+    border:none;
+    outline: none;
+}
+
+.remove{
+    outline: none;
+    background-color: none;
+    border:none;
+    margin-left: 20px;
+}
+
+.buttons-add {
+    width: 20px;
+    border-radius: 50%;
+    background-color: lightgray;
+    border: none;
+    outline: none;
+}
+
+.buttons-minus {
+    width: 20px;
+    border-radius: 50%;
+    background-color: lightgray;
+    border: none;
+    outline: none;
+}
+
+.add-minus{
+    display: flex;
+    flex-direction: row;
+    outline: none;
+}
+
+.customer-details{
+    margin-top: 2%;
+    margin-left: 12%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 53%;
+    height: 3%;
     border:1px solid lightgray;
+    padding: 1% 2% 2% 2%;
+}
+
+.details-open{
+    margin-top: 3%;
+    margin-left: 12%;
+    display: flex;
+    flex-direction: column;
+    width: 53%;
+    height: 84%;
+    border:1px solid lightgray;
+    padding: 1% 2% 2% 2%;
+}
+
+.name-phone{
+    display: flex;
+    flex-direction: row;
+}
+
+.mr{
+    padding-left: 15px;
+}
+
+.pin{
+    display: flex;
+    flex-direction: row;
+    padding-top: 15px;
+}
+
+.address{
+    display: flex;
+    flex-direction: row;
+    padding-top: 15px;
+    width: 434px;
+}
+
+.radio{
+    display: flex;
+    flex-direction: row;
+    padding-top: 15px;
+    width: 434px;
+    outline: none;
+}
+
+.continue-button{
+    display: flex;
+    flex-direction: row;
+    width: 124%;
+    justify-content: flex-end;
+}
+
+.summary{
+    margin-top: 0%;
+    margin-left: 12%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 53%;
+    height: 8px;
+    border:1px solid lightgray;
+    padding: 1% 2% 2% 2%;
+}
+
+@media screen and (max-width: 600px) {
+   
+    .book-count{
+        display: flex;
+        flex-direction: column;
+    }
+
+    .main-cart{
+        display: flex;
+        flex-direction: column;
+        /* justify-content: center; */
+        align-content: flex-start;
+        width: 100%;
+        height: 100vh;
+    }
+
+    .book-details{
+        margin-top: 5%;
+        margin-left: 12%;
+        display: flex;
+        flex-direction: column;
+        width: 70%;
+        height: 50%;
+        border:1px solid lightgray;
+        /* padding: 1% 2% 2% 2%; */
+        align-content: center;
+        align-items: center;
+    }
+
+    .image{
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+    }
+
+    .add-minus{
+        display: flex;
+        flex-direction: row;
+        /* justify-content: center;
+        align-items: center; */
+    }
+    
+    .counter{
+        display: flex;
+        flex-direction: column;
+        width:96px;
+        height: 61px;
+        padding-top: 15px;
+        padding-bottom: 15px;
+    }
+
+    .title-book{
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        width:110px;
+        margin-left: 38px;
+    }
+
+    .remove{
+        outline: none;
+        background-color: none;
+        border:none;
+        margin-left: 0px;
+    }
 }

@@ -16,6 +16,10 @@ import "./toolbar.css";
 import {BrowserRouter, Route, Switch} from 'react-router-dom';
 import DisplayBooks from "../display/displayBooks";
 import AddToCart from "../cart/cart1";
+import { Link } from 'react-router-dom';
+import BookService from '../../Services/userService';
+
+const service = new BookService();
 
 const useStyles = makeStyles((theme) => ({
     grow: {
@@ -163,6 +167,25 @@ export default function ToolBar() {
       </Menu>
     );
 
+    const [items,setItems] = React.useState();
+
+    console.log("Here it is");
+
+    const cart = () => {
+      service.getCartItems(localStorage.getItem("userToken")).then((data) => {
+          let array = data.data.result.length;
+          console.log(array);
+          console.log("from Toolbar");
+          setItems(array);
+      }).catch(error => {
+          console.log(error);
+      })
+    }
+
+    React.useEffect(() => { 
+      cart();
+    }, [] )
+
     return (
       <div>
         <div className="toolbar">
@@ -214,11 +237,12 @@ export default function ToolBar() {
                             aria-label="cart current user"
                             aria-controls={menuId}
                             aria-haspopup="true"
-                            onClick={handleCartMenuOpen}
+                            // onClick={handleCartMenuOpen}
+                            component={Link} to="/dashboard/cart1"
                             color="inherit"
                         >
-                             <ThemeProvider theme={theme}>
-                            <Badge badgeContent={17} color="primary">
+                            <ThemeProvider theme={theme}>
+                            <Badge badgeContent={items} color="primary">
                                 <ShoppingCartOutlinedIcon color="primary" />
                             </Badge>
                             </ThemeProvider>
@@ -228,7 +252,8 @@ export default function ToolBar() {
                 </Toolbar>
             </AppBar>
             </div>
-            <div > {/*className={classes.content*/}
+            {/*className={classes.content*/}
+            {/* <div > 
               <main>
                 <BrowserRouter>
                   <Switch >
@@ -238,13 +263,10 @@ export default function ToolBar() {
                     <Route exact path="/dashboard/cart1">
                       <AddToCart />
                     </Route>
-                    {/* <Route path="/dashboard/deleted">
-                      <DeletedNotes />
-                    </Route> */}
                   </Switch>
                 </BrowserRouter>
               </main> 
-            </div>
+            </div> */}
       </div>
     );
 }

@@ -4,11 +4,11 @@
     align-items: center;
 }
 
-.first-container{
+.first-containerLogin{
     display: flex;
     flex-direction: column;
     width: 389px;
-    height: 425px;
+    height: 350px;
     margin-top: 8%;
     background: #FFFFFF 0% 0% no-repeat padding-box;
     box-shadow: 0px 5px 15px #00000029;
@@ -45,7 +45,7 @@
     border-radius: 50%;
 }
 
-.buttons{
+.buttons-login{
     display: flex;
     justify-content: center;
     align-content: flex-end;
@@ -60,6 +60,7 @@
 }
 
 form{
+    padding-top: 8%;
     width:80%;
 }
 
@@ -67,6 +68,20 @@ form{
 
     .pic-container{
         display: none;
+    }
+
+    .first-containerLogin{
+        display: flex;
+        flex-direction: column;
+        width: 389px;
+        height: 350px;
+        margin-top: 20%;
+        background: #FFFFFF 0% 0% no-repeat padding-box;
+        box-shadow: none;
+        border: none;
+        border-radius: 6px;
+        align-items: center;
+        padding: 0px 2% 0px 2%;
     }
 
 

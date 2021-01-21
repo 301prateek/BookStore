@@ -18,23 +18,7 @@ import VisibilityOff from '@material-ui/icons/VisibilityOff';
 
 const service = new UserService();
 
-// const useStyles = makeStyles((theme) => ({
-//     root: {
-//         display: 'flex',
-//         flexWrap: 'wrap',
-//     },
-//     textField: {
-//         // marginLeft: theme.spacing(2),
-//         // marginRight: theme.spacing(5),
-//         // width: '25ch',
-//         // marginLeft: "5%",
-//         // marginRight: "3%",
-//     },
-// }));
-
 export default class Registration extends React.Component {
-
-    // classes = useStyles(); withstyle
 
     constructor(props) {
         super(props)
@@ -54,6 +38,7 @@ export default class Registration extends React.Component {
             showPassword: false
         }
         this.handleClickShowPassword = this.handleClickShowPassword.bind(this);
+        this.togglePassword = this.togglePassword.bind(this);
         this. handleChangePassword = this. handleChangePassword.bind(this) ;
     };
 
@@ -148,6 +133,14 @@ export default class Registration extends React.Component {
         })
     }
 
+    togglePassword(){
+        this.setState({showPassword: !this.state.showPassword});
+      };
+
+    handleMouseDownPassword = (event) => {
+        event.preventDefault();
+      };
+
     submit = () => {
         if (this.validation()) {
             console.log("Sign Up Failed");
@@ -158,7 +151,8 @@ export default class Registration extends React.Component {
                 "fullName": this.state.fullName,
                 "email": this.state.email,
                 "password": this.state.password,
-                "phoneNumber": this.state.phoneNumber
+                "phone": this.state.phoneNumber,
+                
             }
             service.registration(userData).then(data => {
                 console.log(data);
@@ -189,17 +183,17 @@ export default class Registration extends React.Component {
 
     render() {
         return (
-            <div className="main-container">
+            <div className="main-containerReg">
                 <div className="pic-container">
                     <div>
-                        <img className="img" src="/assets/shoping.png" alt="" width="244" height="244" />
+                        <img className="img" src="../assets/shoping.png" alt="" width="244" height="244" />
                     </div>
                     <div>
                         <span>ONLINE BOOK SHOPPING</span>
                     </div>
                 </div>
-                <div className="first-container" >
-                    <h2>SIGNUP</h2>
+                <div className="first-containerReg" >
+                    <h2>SIGN UP</h2>
                     <form onSubmit={this.submit} >
                         <div className="content">
                             <div className="textfield">
@@ -254,7 +248,7 @@ export default class Registration extends React.Component {
                                     }
                                 /> */}
                             {/* <div className="textfield"> */}
-                                <FormControl variant="outlined">
+                                <FormControl size="small" variant="outlined" className="textfield">
                                     <InputLabel htmlFor="outlined-adornment-password">Password</InputLabel>
                                     <OutlinedInput
                                         name="password"
@@ -271,7 +265,7 @@ export default class Registration extends React.Component {
                                             <InputAdornment position="end">
                                                 <IconButton
                                                     aria-label="toggle password visibility"
-                                                    onClick={this.handleClickShowPassword}
+                                                    onClick={this.togglePassword}
                                                     onMouseDown={this.handleMouseDownPassword}
                                                     edge="end"
                                                 >
@@ -298,8 +292,8 @@ export default class Registration extends React.Component {
                                 />
                             </div>
                         </div>
-                        <div className="buttons">
-                            <Button size="medium" fullWidth color="default" onClick={this.submit}>
+                        <div className="buttons-reg">
+                            <Button size="medium" fullWidth color="inherit" onClick={this.submit}>
                                 <span>Sign up</span>
                             </Button>
                         </div>
